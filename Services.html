@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Jules Healthcare Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2a3d66;
+            --secondary-blue: #4a6fa5;
+            --accent-orange: #ff7e5f;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --primary-color: #2a3d66;
+            --secondary-color: #4a6fa5;
+            --accent-color: #ff7e5f;
+            --dark-text: #2d3748;
+            --light-text: #f8f9fa;
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Modern Navbar */
+        .healthcare-navbar {
+            background-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white) !important;
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar-brand i {
+                color: var(--accent-orange);
+                margin-right: 10px;
+                font-size: 1.5rem;
+            }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--white) !important;
+            margin: 0 10px;
+            padding: 8px 15px !important;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+            .nav-link:hover {
+                color: var(--white) !important;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-link.active {
+                color: var(--white) !important;
+                font-weight: 600;
+            }
+
+                .nav-link.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 15px;
+                    width: 50%;
+                    height: 3px;
+                    background-color: var(--accent-orange);
+                    border-radius: 3px;
+                }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+
+            .navbar-toggler:focus {
+                box-shadow: none;
+            }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Services Content */
+        .services-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 76px; /* Account for fixed navbar */
+        }
+
+        .services-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .services-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .services-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .service-category {
+            margin-bottom: 60px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .service-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: var(--accent-color);
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .services-list {
+            padding: 30px;
+        }
+
+        .service-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .service-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-title i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .service-description {
+            color: #555;
+            padding-left: 28px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 80px 0;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255,126,95,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,126,95,0.4);
+            background-color: #ff6a4f;
+        }
+
+        /* Healthcare Footer */
+        .healthcare-footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+            .footer-logo i {
+                color: var(--accent-orange);
+                margin-right: 10px;
+            }
+
+        .footer-heading {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+            .footer-heading::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background-color: var(--accent-orange);
+            }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+            .footer-link:hover {
+                color: var(--accent-orange);
+                padding-left: 5px;
+            }
+
+        .contact-info {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            color: var(--accent-orange);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+            .social-link:hover {
+                background-color: var(--accent-orange);
+                transform: translateY(-3px);
+            }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .heart {
+            color: var(--accent-orange);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                padding-top: 15px;
+            }
+
+            .nav-link {
+                margin: 5px 0;
+                padding: 10px 15px !important;
+            }
+
+            .footer-col {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-header {
+                padding: 80px 20px;
+            }
+
+            .services-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .services-container {
+                padding: 0 20px;
+            }
+
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Healthcare Navbar -->
+    <nav class="navbar navbar-expand-lg healthcare-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heartbeat"></i> JulesHealthCare
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Header -->
+    <header class="services-header">
+        <h1>Our Comprehensive Services</h1>
+        <p>Specialized care solutions tailored for seniors and children, delivered with compassion and expertise</p>
+    </header>
+
+    <!-- Services Content -->
+    <div class="services-container">
+        <!-- Senior Care Section -->
+        <div class="service-category">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h2 class="category-title">Senior Care & Home Support</h2>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-stethoscope"></i> Registered Nurse (RN)</h3>
+                    <p class="service-description">Provides medical care, administers medications, monitors health conditions, and coordinates patient care plans.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-hands-helping"></i> Personal Support Worker (PSW)</h3>
+                    <p class="service-description">Assists seniors with daily living activities, personal hygiene, mobility support, and companionship.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-home"></i> Home Health Aide</h3>
+                    <p class="service-description">Offers non-medical assistance, such as meal preparation, light housekeeping, and transportation.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-heartbeat"></i> Geriatric Care Specialist</h3>
+                    <p class="service-description">Focuses on tailored senior care plans, ensuring emotional and physical well-being.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-wheelchair"></i> Physical Therapist</h3>
+                    <p class="service-description">Aids seniors in improving mobility, strength, and independence through guided therapy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Child Support Section -->
+        <div class="service-category">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h2 class="category-title">Child Support & Development</h2>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-comment-medical"></i> Speech Therapist</h3>
+                    <p class="service-description">Helps children develop communication skills, language comprehension, and articulation.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-hands"></i> Occupational Therapist</h3>
+                    <p class="service-description">Assists children in building fine motor skills, independence, and everyday functionality.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-brain"></i> Child Development Specialist</h3>
+                    <p class="service-description">Designs and implements programs to aid children in social, cognitive, and physical development.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-gamepad"></i> Play Therapist</h3>
+                    <p class="service-description">Uses structured play techniques to foster emotional growth and learning in children.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-utensils"></i> Feeding Specialist</h3>
+                    <p class="service-description">Supports children with eating challenges, teaching healthy habits, and nutrition strategies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Administrative Section -->
+        <div class="service-category">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h2 class="category-title">Administrative & Support</h2>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-clipboard-check"></i> Healthcare Coordinator</h3>
+                    <p class="service-description">Manages patient care plans, schedules, and liaises between families and healthcare professionals.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-users"></i> Client Relations Manager</h3>
+                    <p class="service-description">Ensures customer satisfaction, addresses concerns, and builds relationships with families.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-graduation-cap"></i> Training & Development Officer</h3>
+                    <p class="service-description">Oversees employee training programs for continuous skill enhancement.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-user-tie"></i> HR & Recruitment Specialist</h3>
+                    <p class="service-description">Hires, trains, and manages healthcare professionals to maintain service excellence.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-shield-alt"></i> Operations & Compliance Manager</h3>
+                    <p class="service-description">Ensures adherence to healthcare regulations, safety protocols, and quality standards.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Section -->
+        <div class="service-category">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <h2 class="category-title">Emergency & Paramedical</h2>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-first-aid"></i> Emergency Response Nurse</h3>
+                    <p class="service-description">Provides immediate care in urgent situations for seniors and children.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-syringe"></i> Paramedic Support Staff</h3>
+                    <p class="service-description">Assists in emergency medical interventions, ensuring prompt and effective care.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="service-title"><i class="fas fa-hand-holding-heart"></i> Palliative Care Specialist</h3>
+                    <p class="service-description">Offers end-of-life support, ensuring comfort, dignity, and emotional care.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Ready to Experience Exceptional Care?</h2>
+        <p>Contact us today to discuss how we can meet your family's unique healthcare needs with our comprehensive services.</p>
+        <a href="contact.html" class="btn">Get in Touch</a>
+    </div>
+
+    <!-- Healthcare Footer -->
+    <footer class="healthcare-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-col">
+                    <span class="footer-logo"><i class="fas fa-heartbeat"></i> JulesHealthCare</span>
+                    <p>Providing exceptional healthcare services with compassion and excellence to seniors and children in the Toronto area.</p>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-col">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Our Services</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <a href="services.html#senior-care" class="footer-link">Senior Care</a>
+                    <a href="services.html#child-care" class="footer-link">Child Development</a>
+                    <a href="services.html#home-support" class="footer-link">Home Support</a>
+                    <a href="services.html#emergency-care" class="footer-link">Emergency Care</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>2350 Dundas St West<br>Toronto, ON M6P 4B1</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <span><a href="tel:4373837402" class="footer-link">(647) 621-8180</a></span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span><a href="mailto:info@juleshealthcare.com" class="footer-link">JuelsHealthcare@outlook.com</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Jules Healthcare Services. All rights reserved.</p>
+                <p>Made with <span class="heart">❤</span> for better healthcare in Toronto</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Add active class to current page in navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

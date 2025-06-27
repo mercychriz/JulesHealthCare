@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jules Healthcare Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-blue: #2a3d66;
+            --secondary-blue: #4a6fa5;
+            --accent-orange: #ff7e5f;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --primary: #3a7bd5;
+            --primary-dark: #2c5fb3;
+            --secondary: #f9a826;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+            --accent: #00d2ff;
+            --text: #4a4a4a;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* Modern Navbar */
+        .healthcare-navbar {
+            background-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white) !important;
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar-brand i {
+                color: var(--accent-orange);
+                margin-right: 10px;
+                font-size: 1.5rem;
+            }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--white) !important;
+            margin: 0 10px;
+            padding: 8px 15px !important;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+            .nav-link:hover {
+                color: var(--white) !important;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-link.active {
+                color: var(--white) !important;
+                font-weight: 600;
+            }
+
+                .nav-link.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 15px;
+                    width: 50%;
+                    height: 3px;
+                    background-color: var(--accent-orange);
+                    border-radius: 3px;
+                }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+
+            .navbar-toggler:focus {
+                box-shadow: none;
+            }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Header/Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 100px 20px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            header::after {
+                content: '';
+                position: absolute;
+                bottom: -50px;
+                left: 0;
+                right: 0;
+                height: 100px;
+                background: var(--light);
+                transform: skewY(-3deg);
+                z-index: 1;
+            }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin: 0 0 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+            h1::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background: var(--secondary);
+                border-radius: 2px;
+            }
+
+        h2 {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin: 80px 0 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+            h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background: var(--secondary);
+            }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin: 30px 0 15px;
+        }
+
+        .header-tagline {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            margin: 40px 0;
+            transition: transform 0.5s ease;
+        }
+
+            .hero-image:hover {
+                transform: scale(1.02);
+            }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .mission-box, .vision-box {
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-box {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+        }
+
+        .vision-box {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+            .mission-box:hover, .vision-box:hover {
+                transform: translateY(-10px);
+            }
+
+        .mission-box h2, .mission-box h3 {
+            color: var(--white);
+        }
+
+            .mission-box h2::after {
+                background: var(--secondary);
+            }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+            .feature-item:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+                border-bottom-color: var(--secondary);
+            }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stats-section {
+            background: linear-gradient(rgba(58, 123, 213, 0.9), rgba(58, 123, 213, 0.9)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            margin: 80px 0;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            position: relative;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-section {
+            margin: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .team-photo-container {
+            width: 100%;
+            height: 0;
+            padding-top: 100%; /* Creates a square container */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center; /* Ensures heads are always visible */
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .team-member:hover .team-photo {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .team-role {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 100px 0 50px;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .cta-section h2 {
+                color: var(--white);
+                margin-bottom: 20px;
+            }
+
+                .cta-section h2::after {
+                    background: var(--secondary);
+                }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            margin: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(249, 168, 38, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(249, 168, 38, 0.4);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        .testimonials {
+            margin: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+            .testimonial-card::before {
+                content: '"';
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                font-size: 5rem;
+                font-family: 'Playfair Display', serif;
+                color: rgba(58, 123, 213, 0.1);
+                line-height: 1;
+                z-index: 0;
+            }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--primary);
+        }
+
+        .author-info {
+            line-height: 1.4;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .author-role {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* Healthcare Footer */
+        .healthcare-footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+            .footer-logo i {
+                color: var(--accent-orange);
+                margin-right: 10px;
+            }
+
+        .footer-heading {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+            .footer-heading::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background-color: var(--accent-orange);
+            }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+            .footer-link:hover {
+                color: var(--accent-orange);
+                padding-left: 5px;
+            }
+
+        .contact-info {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            color: var(--accent-orange);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+            .social-link:hover {
+                background-color: var(--accent-orange);
+                transform: translateY(-3px);
+            }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .heart {
+            color: var(--accent-orange);
+        }
+
+        /* Animations */
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                padding-top: 15px;
+            }
+
+            .nav-link {
+                margin: 5px 0;
+                padding: 10px 15px !important;
+            }
+
+            .footer-col {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .header-tagline {
+                font-size: 1.1rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Healthcare Navbar -->
+    <nav class="navbar navbar-expand-lg healthcare-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heartbeat"></i> JulesHealthCare
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-content animate__animated animate__fadeIn">
+            <h1>Overview</h1>
+            <p class="header-tagline">
+                Jules Healthcare Services is a compassionate and dedicated provider of quality healthcare solutions for seniors and children. We specialize in delivering exceptional homecare support for seniors, ensuring they receive the comfort, care, and dignity they deserve in their golden years. Additionally, we are committed to assisting children in their developmental journey by offering structured support that fosters independence, confidence, and growth. From feeding assistance to play-based learning, speech therapy, and independent training, we aim to create a nurturing environment that empowers families and strengthens communities.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <section class="animate__animated animate__fadeIn animate__delay-1s">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Compassionate care for seniors and children" class="hero-image">
+
+            <h2>Our Story</h2>
+            <p>Founded with a vision to transform healthcare services, Jules Healthcare Services has been a beacon of hope and comfort for families since our inception. What began as a small team of passionate caregivers has blossomed into a trusted provider of exceptional healthcare solutions.</p>
+            <p>We specialize in delivering <strong>personalized homecare for seniors</strong>, ensuring they receive the comfort, dignity, and specialized attention they deserve in their golden years. Our approach combines medical expertise with genuine compassion, creating an environment where every senior feels valued and cared for.</p>
+            <p>For children, we offer <strong>developmental support programs</strong> that nurture growth, independence, and confidence. From feeding assistance to play-based learning, speech therapy, and independent living skills, our child-focused services are designed to meet each child's unique needs.</p>
+        </section>
+
+        <div class="mission-vision">
+            <div class="mission-box animate__animated animate__fadeInLeft">
+                <h2>Our Mission</h2>
+                <p>To enhance quality of life through compassionate, professional care that honors the individuality of each person we serve. We are committed to creating supportive environments where seniors can age with dignity and children can develop to their fullest potential.</p>
+            </div>
+
+            <div class="vision-box animate__animated animate__fadeInRight">
+                <h2>Our Vision</h2>
+                <p>To be recognized as the most trusted provider of integrated healthcare services, setting new standards in senior care and child development support through innovation, compassion, and unwavering commitment to excellence.</p>
+            </div>
+        </div>
+
+        <section class="animate__animated animate__fadeIn animate-delay-2">
+            <h2>Why Choose Jules Healthcare</h2>
+            <p>Our difference lies in our holistic approach, combining clinical excellence with heartfelt compassion. Here's what sets us apart:</p>
+
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Whole-Person Care</h3>
+                    <p>We address physical, emotional, and social needs to deliver truly comprehensive care.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Expert Care Team</h3>
+                    <p>Highly trained professionals with specialized expertise in geriatric and pediatric care.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-home"></i></div>
+                    <h3>Home-Like Environment</h3>
+                    <p>Creating comfortable, familiar settings that promote healing and development.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Family Partnership</h3>
+                    <p>We work closely with families to ensure continuity of care and peace of mind.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section animate__animated animate__fadeIn">
+            <h2>Our Impact in Numbers</h2>
+            <p>Quantifying our commitment to exceptional care</p>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Families Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Trained Professionals</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section animate__animated animate__fadeIn animate-delay-2">
+            <h2>Meet Our Leadership</h2>
+            <p>The compassionate experts behind our exceptional care</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo-container">
+                        <img src="images/JulietPic.jpg" alt="Juliet Dawn Higgains" class="team-photo">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Juliet Dawn Higgains</h3>
+                        <div class="team-role">Founder & Health Care Provider</div>
+                        <p>Personal support Worker for over 35 years</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo-container">
+                        <img src="images/Frankapic.jpg" alt="Francisca Igboa" class="team-photo">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Francisca Igboa</h3>
+                        <div class="team-role">Program Manager/Home care Worker</div>
+                        <p>Program manager/Home Care Worker for over 3 years</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo-container">
+                        <img src="images/Mercypic.jpg" alt="Mercy Osazee Aikhionbare" class="team-photo">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Mercy Osazee Aikhionbare</h3>
+                        <div class="team-role">Software Developer</div>
+                        <p>Software Developer for over 3 years and Home Care worker for 1 year</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials animate__animated animate__fadeIn">
+            <h2>Stories of Care & Compassion</h2>
+            <p>Hear from families who've experienced our care firsthand</p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The care my mother received from Jules Healthcare was beyond anything we could have hoped for. Their team treated her with such dignity and respect, it gave our whole family peace of mind."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="David Thompson" class="author-avatar">
+                        <div class="author-info">
+                            <div class="author-name">David Thompson</div>
+                            <div class="author-role">Son of Client</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Our daughter's speech and motor skills improved dramatically after just a few months with Jules' pediatric therapists. They made therapy feel like play!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Lisa Park" class="author-avatar">
+                        <div class="author-info">
+                            <div class="author-name">Lisa Park</div>
+                            <div class="author-role">Mother of Client</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a physician, I'm incredibly particular about healthcare providers. Jules Healthcare meets the highest standards of care while maintaining genuine warmth and compassion."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. Robert Chang" class="author-avatar">
+                        <div class="author-info">
+                            <div class="author-name">Dr. Robert Chang</div>
+                            <div class="author-role">Family Physician</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section animate__animated animate__fadeIn">
+            <div class="cta-content">
+                <h2>Ready to Experience Exceptional Care?</h2>
+                <p>Whether you're seeking support for a loved one or exploring options for your child's development, our team is here to help with compassion and expertise.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    <a href="services.html" class="btn btn-secondary">Learn About Our Services</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Healthcare Footer -->
+    <footer class="healthcare-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-col">
+                    <span class="footer-logo"><i class="fas fa-heartbeat"></i> JulesHealthCare</span>
+                    <p>Providing exceptional healthcare services with compassion and excellence to seniors and children in the Toronto area.</p>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-col">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Our Services</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <a href="services.html#senior-care" class="footer-link">Senior Care</a>
+                    <a href="services.html#child-care" class="footer-link">Child Development</a>
+                    <a href="services.html#home-support" class="footer-link">Home Support</a>
+                    <a href="services.html#emergency-care" class="footer-link">Emergency Care</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>2350 Dundas St West<br>Toronto, ON M6P 4B1</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <span><a href="tel:4373837402" class="footer-link">(647) 621-8180</a></span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span><a href="mailto:info@juleshealthcare.com" class="footer-link">JuelsHealthcare@outlook.com</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Jules Healthcare Services. All rights reserved.</p>
+                <p>Made with <span class="heart">❤</span> for better healthcare in Toronto</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Add active class to current page in navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
