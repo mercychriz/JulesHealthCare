@@ -257,7 +257,8 @@
         .healthcare-footer {
             background-color: var(--primary-blue);
             color: var(--white);
-            padding: 60px 0 20px;
+            padding: 50px 0 20px;
+            margin-top: auto;
         }
 
         .footer-logo {
@@ -270,11 +271,6 @@
         .footer-logo i {
             color: var(--accent-orange);
             margin-right: 10px;
-        }
-
-        .footer-about p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 20px;
         }
 
         .footer-heading {
@@ -296,18 +292,11 @@
             background-color: var(--accent-orange);
         }
 
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
         .footer-link {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
             transition: all 0.3s ease;
         }
 
@@ -316,10 +305,10 @@
             padding-left: 5px;
         }
 
-        .footer-contact-info {
+        .contact-info {
+            margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
         }
 
         .footer-contact-icon {
@@ -358,6 +347,10 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
+        }
+
+        .heart {
+            color: var(--accent-orange);
         }
 
         /* Responsive */
@@ -453,7 +446,7 @@
                                 <a href="tel:6476218180" class="action-btn btn-call">
                                     <i class="fas fa-phone"></i> Call Now
                                 </a>
-                                <a href="https://wa.me/14373837402" class="action-btn btn-whatsapp">
+                                <a href="https://wa.me/6476218180" class="action-btn btn-whatsapp">
                                     <i class="fab fa-whatsapp"></i> WhatsApp
                                 </a>
                             </div>
@@ -468,7 +461,6 @@
                             <h3>Email</h3>
                             <p>
                                 <a href="mailto:JuelsHealthcare@outlook.com">JuelsHealthcare@outlook.com</a><br>
-                               
                             </p>
                         </div>
                     </div>
@@ -493,42 +485,53 @@
                 <div class="contact-card">
                     <h2>Send Us a Message</h2>
                     
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formsubmit.co/JulesHealthcare@outlook.com" method="POST">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="New Message from JulesHealthcare Website">
+                        <input type="hidden" name="_autoresponse" value="Thank you for contacting JulesHealthcare! We'll respond within 24 hours.">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none"> <!-- Anti-spam -->
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <!-- Your Form Fields -->
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control">
+                            <input type="tel" id="phone" name="phone" class="form-control">
                         </div>
                         
                         <div class="form-group">
                             <label for="subject" class="form-label">Subject</label>
-                            <select id="subject" class="form-control">
+                            <select id="subject" name="subject" class="form-control" required>
                                 <option value="">Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="services">Services Information</option>
-                                <option value="senior-care">Senior Care</option>
-                                <option value="child-care">Child Development</option>
-                                <option value="careers">Career Opportunities</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Services Information">Services Information</option>
+                                <option value="Senior Care">Senior Care</option>
+                                <option value="Child Development">Child Development</option>
+                                <option value="Career Opportunities">Career Opportunities</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="message" class="form-label">Your Message</label>
-                            <textarea id="message" class="form-control" rows="5" required></textarea>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
+                        
+                        <!-- Optional: Thank-you page redirect -->
+                        <input type="hidden" name="_next" value="https://mercychriz.github.io/JulesHealthCare/thank-you.html">
                     </form>
                 </div>
             </div>
@@ -539,62 +542,54 @@
     <footer class="healthcare-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="footer-about">
-                        <span class="footer-logo"><i class="fas fa-heartbeat"></i> JulesHealthCare</span>
-                        <p>Providing exceptional healthcare services with compassion and excellence to seniors and children in the Toronto area.</p>
-                        
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+                <div class="col-lg-4 col-md-6 footer-col">
+                    <span class="footer-logo"><i class="fas fa-heartbeat"></i> JulesHealthCare</span>
+                    <p>Providing exceptional healthcare services with compassion and excellence to seniors and children in the Toronto area.</p>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577984782992" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/healthcare9823" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/juels_healthcare_service" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/juels-healthcare-650a66371" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                
-                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
-                    <h3 class="footer-heading">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html" class="footer-link">Home</a></li>
-                        <li><a href="about.html" class="footer-link">About Us</a></li>
-                        <li><a href="services.html" class="footer-link">Our Services</a></li>
-                        <li><a href="contact.html" class="footer-link">Contact</a></li>
-                    </ul>
+
+                <div class="col-lg-2 col-md-6 footer-col">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Our Services</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
                 </div>
-                
-                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                    <h3 class="footer-heading">Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" class="footer-link">Senior Care</a></li>
-                        <li><a href="#" class="footer-link">Child Development</a></li>
-                        <li><a href="#" class="footer-link">Home Support</a></li>
-                        <li><a href="#" class="footer-link">Emergency Care</a></li>
-                    </ul>
+
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <a href="services.html#senior-care" class="footer-link">Senior Care</a>
+                    <a href="services.html#child-care" class="footer-link">Child Development</a>
+                    <a href="services.html#home-support" class="footer-link">Home Support</a>
+                    <a href="services.html#emergency-care" class="footer-link">Emergency Care</a>
                 </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="footer-heading">Contact Info</h3>
-                    
-                    <div class="footer-contact-info">
+
+                <div class="col-lg-3 col-md-6 footer-col">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <div class="contact-info">
                         <i class="fas fa-map-marker-alt footer-contact-icon"></i>
                         <span>2350 Dundas St West<br>Toronto, ON M6P 4B1</span>
                     </div>
-                    
-                    <div class="footer-contact-info">
+                    <div class="contact-info">
                         <i class="fas fa-phone-alt footer-contact-icon"></i>
-                        <span><a href="tel:4373837402" class="footer-link">(647) 621-8180</a></span>
+                        <span><a href="tel:6476218180" class="footer-link">(647) 621-8180</a></span>
                     </div>
-                    
-                    <div class="footer-contact-info">
+                    <div class="contact-info">
                         <i class="fas fa-envelope footer-contact-icon"></i>
-                        <span><a href="mailto:info@juleshealthcare.com" class="footer-link">JuelsHealthcare@outlook.com</a></span>
+                        <span><a href="mailto:JuelsHealthcare@outlook.com" class="footer-link">JuelsHealthcare@outlook.com</a></span>
                     </div>
                 </div>
             </div>
-            
+
             <div class="copyright">
                 <p>&copy; <script>document.write(new Date().getFullYear())</script> Jules Healthcare Services. All rights reserved.</p>
+                <p>Made with <span class="heart">❤</span> for better healthcare in Toronto</p>
             </div>
         </div>
     </footer>
